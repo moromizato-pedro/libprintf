@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_pf.c                                    :+:      :+:    :+:   */
+/*   ft_putptr_pf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pedrohe3 <pedrohe3@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 17:26:40 by pedrohe3          #+#    #+#             */
-/*   Updated: 2025/11/12 22:32:20 by pedrohe3         ###   ########.fr       */
+/*   Created: 2025/11/12 15:42:09 by pedrohe3          #+#    #+#             */
+/*   Updated: 2025/11/13 02:04:48 by pedrohe3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar_pf(char c, int *count)
+int	ft_putptr_pf(long addr, int *count)
 {
-	if (!count || write(1, &c, 1) == -1)
+	if (!count)
 		return (-1);
-	*count += 1;
+	if (!addr)
+		return (ft_putstr_pf("(nil)", count));
+	ft_putstr_pf("0x", count);
+	ft_putnbr_base_pf(addr, "0123456789abcdef", count);
 	return (1);
 }

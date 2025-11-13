@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libprintf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_pf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pedrohe3 <pedrohe3@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 15:42:24 by pedrohe3          #+#    #+#             */
-/*   Updated: 2025/11/10 18:55:32 by pedrohe3         ###   ########.fr       */
+/*   Created: 2025/11/12 18:09:48 by pedrohe3          #+#    #+#             */
+/*   Updated: 2025/11/12 22:31:51 by pedrohe3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBPRINTF_H
-# define LIBPRINTF_H
+#include "ft_printf.h"
 
-# include <stdlib.h>
-
-int	ft_putchar_pf(char c, int *count);
-int	ft_putstr_pf(char *s, int *count);
-
-#endif
+int	ft_putnbr_pf(int nbr, int *count)
+{
+	if (!count)
+		return (-1);
+	return (ft_putnbr_base_pf(nbr, "0123456789", count));
+}

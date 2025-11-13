@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_pf.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr_base_pf.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pedrohe3 <pedrohe3@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 17:26:40 by pedrohe3          #+#    #+#             */
-/*   Updated: 2025/11/12 22:32:20 by pedrohe3         ###   ########.fr       */
+/*   Created: 2025/11/12 16:08:36 by pedrohe3          #+#    #+#             */
+/*   Updated: 2025/11/13 02:08:53 by pedrohe3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar_pf(char c, int *count)
+int	ft_putnbr_base_pf(long nbr, char *base, int *count)
 {
-	if (!count || write(1, &c, 1) == -1)
+	unsigned long	len;
+	unsigned long	n;
+
+	n = (unsigned long)nbr;
+	if (!base || !count)
 		return (-1);
-	*count += 1;
-	return (1);
+	len = ft_strlen(base);
+	if (nbr < 0 && len == 10)
+	{
+		ft_putchar_pf('-', count);
+		n = (unsigned long)-nbr;
+	}
+	if (n >= len)
+		ft_putnbr_base_pf(n / len, base, count);
+	return (ft_putchar_pf(base[n % len], count));
 }
