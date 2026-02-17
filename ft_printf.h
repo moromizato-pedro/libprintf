@@ -6,7 +6,7 @@
 /*   By: pedrohe3 <pedrohe3@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 15:42:24 by pedrohe3          #+#    #+#             */
-/*   Updated: 2025/11/13 01:55:19 by pedrohe3         ###   ########.fr       */
+/*   Updated: 2026/02/17 14:26:56 by pedrohe3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <limits.h>
-# include "libft.h"
+# include "libft/libft.h"
 
 int	ft_printf(const char *format, ...);
 int	ft_putchar_pf(char c, int *count);
