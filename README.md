@@ -44,9 +44,7 @@ int	main(void)
 ### Compilation and Linking
 To build the executable from the source code, you need the following command:
 	
-	```
 	cc -Wall -Werror -Wextra main.c libftprintf.a -o test
-	```
 	
 The command above links the compiled object code from "main.c" with the static archive libftprintf.a to produce the final executable named "test". All of that can be viewed in different fragments:
 - The `cc main.c` compiles the source code (creates an object file, the .o, for the main.c)
